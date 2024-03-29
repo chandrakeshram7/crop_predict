@@ -37,7 +37,7 @@ def crop_prediction():
         my_prediction = crop_recommendation_model.predict(input_array.reshape(1,-1))
         final_prediction = my_prediction[0]
 
-        return jsonify({'prediction ' : final_prediction })
+        return jsonify({'prediction' : final_prediction })
 
         
 #This is just 
