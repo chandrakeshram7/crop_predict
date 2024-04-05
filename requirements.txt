@@ -6,3 +6,4 @@ flask_cors==3.0.10
 requests==2.26.0
 joblib
 scikit-learn
+pandas 
