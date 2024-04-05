@@ -50,7 +50,7 @@ def get_msp():
     if crop_name is None:
         return jsonify({'error': 'Crop name parameter is missing'}), 400
     
-    crop_data = df[df['crop_name'] == crop_name.title()]  # Filter data for the specified crop name
+    crop_data = df[df['crop_name'] == crop_name.title()]  
     
     if crop_data.empty:
         return jsonify({'error': 'Crop not found'}), 404
