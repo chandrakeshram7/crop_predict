@@ -42,11 +42,11 @@ def crop_prediction():
 
         return jsonify({'prediction' : final_prediction })
 
-@app.route('/msp')
+@app.route('/msp',methods=['POST'])
 def get_msp():
-    # data = request.get_json()
-    # crop_name = data.get('crop_name')
-    crop_name = "Urad"
+    data = request.get_json()
+    crop_name = data.get('crop_name')
+    # crop_name = "Urad"
     if crop_name is None:
         return jsonify({'error': 'Crop name parameter is missing'}), 400
     
