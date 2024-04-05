@@ -42,7 +42,7 @@ def crop_prediction():
 
         return jsonify({'prediction' : final_prediction })
 
-@app.route('/msp')
+@app.route('/msp',methods=['POST'])
 def get_msp():
     data = request.get_json()
     crop_name = data.get('crop_name')
