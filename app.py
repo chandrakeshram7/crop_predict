@@ -1,11 +1,12 @@
 # Importing essential libraries and modules
 from flask import Flask, jsonify, request
 import requests
+import pandas as pd
 import io
 import joblib
 from flask_cors import CORS
 import numpy as np
-import pandas as pd
+
 crop_recommendation_model_path = 'crop_app'
 crop_recommendation_model = joblib.load(crop_recommendation_model_path)
 
