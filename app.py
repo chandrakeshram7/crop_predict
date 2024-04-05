@@ -42,11 +42,11 @@ def crop_prediction():
 
         return jsonify({'prediction' : final_prediction })
 
-@app.route('/msp',methods=['POST'])
+@app.route('/msp')
 def get_msp():
-    data = request.get_json()
-    crop_name = data.get('crop_name')
-    # crop_name ="Jowar"
+    # data = request.get_json()
+    # crop_name = data.get('crop_name')
+    crop_name = "Urad"
     if crop_name is None:
         return jsonify({'error': 'Crop name parameter is missing'}), 400
     
@@ -55,22 +55,19 @@ def get_msp():
     if crop_data.empty:
         return jsonify({'error': 'Crop not found'}), 404
     
-    msp_dict = {
-        'Crop': crop_name.title(),
-        'Varieties': crop_data['variety'].tolist(),
-        'MSP': {
-            '2021-22': crop_data['2021-22'].tolist(),
-            '2022-23': crop_data['2022-23'].tolist(),
-            '2023-24': crop_data['2023-24'].tolist()
-        }
+    varieties = crop_data['variety'].tolist()
+    msp_2021_22 = crop_data['2021-22'].tolist()
+    msp_2022_23 = crop_data['2022-23'].tolist()
+    msp_2023_24 = crop_data['2023-24'].tolist()
+    
+    response = {
+        'varieties': varieties,
+        'msp_2021_22': msp_2021_22,
+        'msp_2022_23': msp_2022_23,
+        'msp_2023_24': msp_2023_24
     }
     
-    return jsonify(msp_dict)
-
-    
-
-
-
+    return jsonify(response)
 # ===============================================================================================
 if __name__ == '__main__':
     app.run(debug=False)
