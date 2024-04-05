@@ -61,10 +61,10 @@ def get_msp():
     msp_2023_24 = crop_data['2023-24'].tolist()
     
     response = {
-        'varieties': varieties,
-        'msp_2021_22': msp_2021_22,
-        'msp_2022_23': msp_2022_23,
-        'msp_2023_24': msp_2023_24
+        'Variety': varieties,
+        'MSP-2021-22': msp_2021_22,
+        'MSP-2022-23': msp_2022_23,
+        'MSP-2023-24': msp_2023_24
     }
     
     return jsonify(response)
